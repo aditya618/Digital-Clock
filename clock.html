@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    <title>DIGITAL CLOCK</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background: black;
+            }
+            h1{
+                color: white;
+                position: absolute;
+                padding: 20px;
+                left: 50%;
+                top: 20%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            
+            h2{
+                color: white;
+                position: absolute;
+                padding: 20px;
+                left: 50%;
+                top: 77%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .div1{
+                position: absolute;
+                padding: 20px;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                border: 2px solid grey;
+                font-size: 60px;
+                color: lavender;
+                box-shadow: 0px 0px 5px 1.5px  white;
+            }
+            .white{
+                color: white;
+                padding: 5px;
+                position: absolute;
+                left: 50%;
+                top: 72%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .white-down{
+                color: white;
+                padding: 5px;
+                position: absolute;
+                left: 50%;
+                top: 85%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+        
+        </style>
+    </head>
+    <body>
+        <h1> DIGITAL CLOCK </h1>
+        <div id="time" class="div1"></div>
+        <p class="white">&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;</p>
+        <h2 id="greet"></h2>
+        <p class="white-down">&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;&hearts;&nbsp;</p>
+        <script type="text/javascript" >
+            var name = prompt("Your Name","");
+            if(name != false){
+            function currentTime()
+            {
+                
+                var date = new Date();
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                
+                var ap = (h > 12) ? "PM" : "AM";
+                
+                  if (h < 10) {
+                     document.getElementById('greet').innerHTML = "Good morning" + " "+ name.toUpperCase() + "!";
+                  } else if (h < 20) {
+                      document.getElementById('greet').innerHTML = "Good day" + " "+ name.toUpperCase() + "!";
+                  } else {
+                     document.getElementById('greet').innerHTML = "Good evening" + " "+ name.toUpperCase() + "!";
+                  }
+                
+                if(h == 0){
+                    h = 12;
+                }
+                if(h > 12){
+                    h = h - 12;
+                }
+                
+                
+                 h = (h < 10) ? "0" + h : h;
+                 m = (m < 10) ? "0" + m : m;
+                 s = (s < 10) ? "0" + s : s;
+                document.getElementById('time').innerHTML = h + ":" + m + ":" + s + " " + ap;
+    
+                
+    
+            }
+
+            setInterval(currentTime,1);
+            }
+        else{
+            alert("Refresh the page and type your name");
+        }
+        </script>
+    </body>
+
+</html>
